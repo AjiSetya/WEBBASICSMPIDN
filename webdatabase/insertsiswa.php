@@ -7,27 +7,22 @@
 </head>
 <body>
 	<div class="container">
+		<h1 class="text-center">Tambah Siswa</h1>
+		<hr>
 		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-					<div class="form-group row">
-						<label class="col-2 col-form-label" for="namasiswa">Nama</label>
-						<div class="col-10">
-							<input class="form-control" id="namasiswa" type="text" name="nama" placeholder="Nama siswa" required>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-2  col-form-label">Alamat</label>
-						<div class="col-10">
-							<textarea class="form-control" name="alamat" cols="30" rows="10" placeholder="Alamat siswa" required></textarea>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-2  col-form-label">Kelas</label>
-						<div class="col-10">
-							<input class="form-control" type="text" name="idkelas" placeholder="Kelas" required>
-						</div>
-					</div>
-					
-					<input class="btn btn-primary" type="submit" value="SIMPAN">
+			<div class="form-group">
+				<label for="namasiswa">Nama</label>
+				<input class="form-control" id="namasiswa" type="text" name="nama" placeholder="Nama siswa" required>
+			</div>
+			<div class="form-group">
+				<label for="alamatsiswa">Alamat</label>
+				<textarea class="form-control" id="alamatsiswa" name="alamat"placeholder="Alamat siswa" rows="5" required></textarea>
+			</div>
+			<div class="form-group">
+				<label for="kelassiswa">Kelas</label>
+				<input class="form-control" id="kelassiswa" type="text" name="idkelas" placeholder="Kelas" required>
+			</div>
+			<input class="btn btn-primary" type="submit" value="Simpan">
 		</form>
 	</div>
 		
