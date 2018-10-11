@@ -45,14 +45,21 @@
 	?>
 
 	<div class="container">
-		<a class="btn btn-outline-info" href="insertsiswa.php" style="text-decoration: none;">Tambah</a><br><br>
+		<h1 class="text-center">Daftar Siswa</h1>
+		<?php
+			include 'koneksi.php';
+
+			$sql = "SELECT * FROM tb_siswa";
+			$tampil_data = $koneksi->query($sql);
+			$addButton = "<a class='btn btn-info' href='insertsiswa.php'>Tambah</a>";
+			if ($tampil_data->num_rows > 0 ) {
+				echo $addButton;
+			}
+		?>
+		<hr>
 		<table class="table table-striped table-bordered table-success">
 			<caption>List of 8 Junior High School</caption>
 			<?php 
-				include 'koneksi.php';
-
-				$sql = "SELECT * FROM tb_siswa";
-				$tampil_data = $koneksi->query($sql);
 				if ($tampil_data->num_rows > 0) {		
 			?>
 				<thead class="thead-dark">
@@ -75,7 +82,7 @@
 						<td><?= $row['alamat_siswa'] ?></td>
 						<td><?= $row['id_kelas'] ?></td>
 						<td>
-							<a class="btn btn-warning" href="editsiswa.php?id=<?= $row['id_siswa'] ?>">Edit</a>
+							<a class="btn btn-warning text-white" href="editsiswa.php?id=<?= $row['id_siswa'] ?>">Edit</a>
 							<a class="btn btn-danger" href="#!" onclick="konfirmasi('hapussiswa.php?id=<?= $row['id_siswa'] ?>')">Hapus</a>
 						</td>
 					</tr>
@@ -83,7 +90,8 @@
 			<?php
 				}
 				} else {
-					echo "Data kosong";
+					echo "<h3 class='text-center'>Data kosong</h3>";
+					echo "<center>$addButton</center>";
 				}
 			?>
 			</tbody>
