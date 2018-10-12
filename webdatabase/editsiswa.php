@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Edit Siswa</title>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
 
@@ -33,28 +35,25 @@
 		}
 		
 	?>
-
-	<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-		<input type="hidden" name="id" value="<?= $data['id_siswa'] ?>">
-		<table>
-			<tr>
-				<td>Nama</td>
-				<td><input type="text" name="nama" value="<?= $data['nama_siswa'] ?>" placeholder="Nama siswa"></td>
-			</tr>
-			<tr>
-				<td>Alamat</td>
-				<td><textarea name="alamat" cols="30" rows="10" placeholder="Alamat siswa" required><?= $data['alamat_siswa'] ?></textarea></td>
-			</tr>
-			<tr>
-				<td>Kelas</td>
-				<td><input type="text" name="idkelas" value="<?= $data['id_kelas'] ?>" placeholder="Kelas" required></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="SIMPAN"></td>
-				<td></td>
-			</tr>
-		</table>
-	</form>
+	<div class="container">
+		<h1 class="text-center">Edit <?= $data['nama_siswa'] ?> </h1>
+		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+			<input type="hidden" name="id" value="<?= $data['id_siswa'] ?>">
+			<div class="form-group">
+				<label>Nama</label>
+				<input type="text" name="nama" value="<?= $data['nama_siswa'] ?>" placeholder="Nama siswa" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Alamat</label>
+				<textarea name="alamat" rows="5" class="form-control" required><?= $data['alamat_siswa'] ?></textarea>
+			</div>
+			<div class="form-group">
+				<label>Kelas</label>
+				<input type="text" name="idkelas" value="<?= $data['id_kelas'] ?>" class="form-control" required>
+			</div>
+			<input type="submit" class="btn btn-primary" value="SIMPAN"></td>
+		</form>
+	</div>
 </body>
 </html>
 
