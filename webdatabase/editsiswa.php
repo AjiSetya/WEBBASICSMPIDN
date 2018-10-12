@@ -54,10 +54,16 @@
 			<input type="submit" class="btn btn-primary" value="SIMPAN"></td>
 		</form>
 	</div>
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<!-- bootstrap script -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
 
 <?php 
+session_start();
 	// jika dapat request
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -81,7 +87,17 @@
 
 		$sql = "UPDATE tb_siswa SET nama_siswa = '$nama', alamat_siswa = '$alamat', id_kelas = '$idkelas' WHERE id_siswa = '$idsiswa'";
 
-		echo ($koneksi->query($sql) === TRUE) ? header("location:tampilsiswa.php") : "Gagal memperbarui data. Error message : " . $koneksi->error;
+
+		if ($koneksi->query($sql) === TRUE) {
+			// masukkan data pesan dan hasil di session
+			$_SESSION["pesan"]  = "Berhasil mengupdate data";
+			$_SESSION["result"] = "sukses";
+			header("location:tampilsiswa.php");
+		} else {
+			$_SESSION["pesan"]  = "Gagal mengupdate data dengan pesan error : " . $koneksi->error;
+			$_SESSION["result"] = "gagal";
+			header("location:tampilsiswa.php");
+		} 
 
 		$koneksi->close();
 	}
