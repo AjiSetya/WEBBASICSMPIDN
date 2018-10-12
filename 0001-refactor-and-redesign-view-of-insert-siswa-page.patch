@@ -1,0 +1,59 @@
+From 1eeeb134775672c6b18fe20374cc8d7ee0979746 Mon Sep 17 00:00:00 2001
+From: Hilmi Mubarok <m.hilmimubarok@gmail.com>
+Date: Thu, 11 Oct 2018 15:34:54 +0700
+Subject: [PATCH] refactor and redesign view of insert siswa page
+
+---
+ webdatabase/insertsiswa.php | 35 +++++++++++++++--------------------
+ 1 file changed, 15 insertions(+), 20 deletions(-)
+
+diff --git a/webdatabase/insertsiswa.php b/webdatabase/insertsiswa.php
+index eb58b25..c23fa0f 100644
+--- a/webdatabase/insertsiswa.php
++++ b/webdatabase/insertsiswa.php
+@@ -7,27 +7,22 @@
+ </head>
+ <body>
+ 	<div class="container">
++		<h1 class="text-center">Tambah Siswa</h1>
++		<hr>
+ 		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+-					<div class="form-group row">
+-						<label class="col-2 col-form-label" for="namasiswa">Nama</label>
+-						<div class="col-10">
+-							<input class="form-control" id="namasiswa" type="text" name="nama" placeholder="Nama siswa" required>
+-						</div>
+-					</div>
+-					<div class="form-group row">
+-						<label class="col-2  col-form-label">Alamat</label>
+-						<div class="col-10">
+-							<textarea class="form-control" name="alamat" cols="30" rows="10" placeholder="Alamat siswa" required></textarea>
+-						</div>
+-					</div>
+-					<div class="form-group row">
+-						<label class="col-2  col-form-label">Kelas</label>
+-						<div class="col-10">
+-							<input class="form-control" type="text" name="idkelas" placeholder="Kelas" required>
+-						</div>
+-					</div>
+-					
+-					<input class="btn btn-primary" type="submit" value="SIMPAN">
++			<div class="form-group">
++				<label for="namasiswa">Nama</label>
++				<input class="form-control" id="namasiswa" type="text" name="nama" placeholder="Nama siswa" required>
++			</div>
++			<div class="form-group">
++				<label for="alamatsiswa">Alamat</label>
++				<textarea class="form-control" id="alamatsiswa" name="alamat"placeholder="Alamat siswa" rows="5" required></textarea>
++			</div>
++			<div class="form-group">
++				<label for="kelassiswa">Kelas</label>
++				<input class="form-control" id="kelassiswa" type="text" name="idkelas" placeholder="Kelas" required>
++			</div>
++			<input class="btn btn-primary" type="submit" value="Simpan">
+ 		</form>
+ 	</div>
+ 		
+-- 
+2.18.0.windows.1
+
