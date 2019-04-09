@@ -1,10 +1,10 @@
 <?php 
 	// file untuk konek ke database
 	
-	$username = "root";
-	$password = "";
+	$username = "id8837739_root";
+	$password = "serverajisetya8080";
 	$server   = "localhost";
-	$database = "db_appsiswa";
+	$database = "id8837739_ajiserverdb";
 
 	// PDO (php data object)
 	// mysqli
