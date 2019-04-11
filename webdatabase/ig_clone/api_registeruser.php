@@ -6,8 +6,6 @@
 		$email    = $_POST['email'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$nama     = $_POST['nama'];
-		$pp       = $_POST['pimg'];
 		// enkripsi password dengan md5
 		$enkrip_pass = md5($password);
 
@@ -23,7 +21,7 @@
 			$data['pesan'] = 'Email telah dipakai';
 			$data['hasil'] = 'false';
 		} else {
-			$query = "INSERT INTO tb_users (nama, username, email, password, p_image) VALUES ('$nama', '$username', '$email', '$enkrip_pass', '$pp')";
+			$query = "INSERT INTO tb_users (username, email, password) VALUES ('$username', '$email', '$enkrip_pass')";
 
 			$simpan = $koneksi->query($query);
 
